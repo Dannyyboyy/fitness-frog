@@ -41,6 +41,14 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Add()
         {
+            
+            return View();
+        }
+        // this is an attribute. Which allows us to name our method. Its a method request to help us GET AND Retrive the post
+        [ActionName("Add"), HttpPost]
+        public ActionResult AddPost()
+        {
+
             return View();
         }
 
