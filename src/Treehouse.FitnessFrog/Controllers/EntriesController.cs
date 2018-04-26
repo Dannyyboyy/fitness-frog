@@ -41,18 +41,25 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Add()
         {
-            
-            return View();
+            var entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+
+            return View(entry);
         }
         // this is an attribute. Which allows us to name our method. Its a method request to help us GET AND Retrive the post
         [HttpPost]
         // below are method paramaters to help us specifity each form field value we need to capture.
-        public ActionResult Add(DateTime? date, 
-            int? activityId, double? duration, 
-            Entry.IntensityLevel? intensity, 
-            bool? exclude, string notes)
+        public ActionResult Add(Entry entry)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
+                
+                //TODO Display the Enteries list page
+            }
+            return View(entry);
         }
 
         public ActionResult Edit(int? id)
