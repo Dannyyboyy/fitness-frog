@@ -47,10 +47,12 @@ namespace Treehouse.FitnessFrog.Controllers
         // this is an attribute. Which allows us to name our method. Its a method request to help us GET AND Retrive the post
         [HttpPost]
         // below are method paramaters to help us specifity each form field value we need to capture.
-        public ActionResult Add(string date, 
-            string activityId, string duration, 
-            string intensity, string exclude, string notes)
+        public ActionResult Add(DateTime? date, 
+            int? activityId, double? duration, 
+            Entry.IntensityLevel? intensity, 
+            bool? exclude, string notes)
         {
+
             ViewBag.Date = date;
             ViewBag.ActivityId = activityId;
             ViewBag.Duration = duration;
