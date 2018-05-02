@@ -56,6 +56,13 @@ namespace Treehouse.FitnessFrog.Controllers
         // below are method paramaters to help us specifity each form field value we need to capture.
         public ActionResult Add(Entry entry)
         {
+            // if there aren't any duration field validation errors. 
+            //Then make sure the duration is greater than 0.
+            if (ModelState.IsValidField("Duration") && entry.Duration <= 0)
+            {
+                ModelState.AddModelError("Duration", "The Duration field value must be greater than '0'.");
+            }
+
             if (ModelState.IsValid)
             {
                 _entriesRepository.AddEntry(entry);
