@@ -8,6 +8,9 @@
 
 <h2>@ViewBag.Title</h2>
 
+@** this validation summary method allows us to display error messages when a section is not field in. using the alert and alert danger from bootstrap.
+    allows us to display these errors until all reqired sections are filled in.*@
+@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 
 @using (Html.BeginForm())
 {
@@ -24,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
             @Html.DropDownListFor(m => m.ActivityId, 
-            (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
+                (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
         </div>
 
         <div class="form-group">
