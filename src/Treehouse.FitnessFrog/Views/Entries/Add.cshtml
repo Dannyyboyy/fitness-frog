@@ -10,13 +10,14 @@
 
 @** this validation summary method allows us to display error messages when a section is not field in. using the alert and alert danger from bootstrap.
     allows us to display these errors until all reqired sections are filled in.*@
-@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 
 @using (Html.BeginForm())
 {
-<div class="row">
+    @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 
-    <div class="col-md-6">
+    <div class="row">
+
+     <div class="col-md-6">
         <!-- Below a lambda expression the m => m ... is a huge improvement instead of having to know what our field name is visual studios gives us a list
             of properties available on our models. Reduces typing and decrease the chacne of errors.-->
         <div class="form-group">
